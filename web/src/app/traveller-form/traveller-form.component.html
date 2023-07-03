@@ -1,0 +1,25 @@
+<form #addTraveller="ngForm" (ngSubmit)="formSubmit(addTraveller)">
+  <h1>Add Traveller</h1>
+  <mat-form-field>
+    <mat-label>Traveller Name</mat-label>
+    <input matInput #traveller_name="ngModel" type="text" name="traveller_name" id="traveller_name" required ngModel />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Expense</mat-label>
+    <input matInput #expense="ngModel" type="number" min="0.01" step=".01" name="expense" id="expense" required
+      ngModel />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    Add Traveller
+  </button>
+  <div style="color: red">
+    <div *ngIf="traveller_name.errors?.['required'] && traveller_name.touched">
+      *Traveller Name is required.
+    </div>
+    <div *ngIf="expense.errors?.['required'] && expense.touched">
+      *Expense is required.
+    </div>
+  </div>
+</form>

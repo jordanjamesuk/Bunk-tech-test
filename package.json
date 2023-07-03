@@ -1,0 +1,14 @@
+{
+  "name": "bunk-tech-test-jordan-james",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "install-all": "cd ./api/ && npm install && cd .. && cd ./web/ && npm install",
+    "start": "cd ./api/ && npm start & cd ./web/ && npm start",
+    "test": "cd ./api/ && npm test",
+    "e2e": "cd ./web/ && npm run e2e"
+  },
+  "author": "",
+  "license": "ISC"
+}

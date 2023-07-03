@@ -1,0 +1,19 @@
+version: '3'
+services:
+    api:
+        build:
+            context: ./api
+            dockerfile: Dockerfile
+        image: bunk-api
+        container_name: bunk-api
+        ports:
+            - 3000:3000
+
+    web:
+        build:
+            context: ./web
+            dockerfile: Dockerfile
+        image: bunk-web
+        container_name: bunk-web
+        ports:
+            - 4200:80

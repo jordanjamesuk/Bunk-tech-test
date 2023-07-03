@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "commonjs",
+    "outDir": "./dist", // The directory to output the compiled .js files.
+    "rootDir": "./",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+  },
+  "include": [
+    "./**/*.ts" // Include all .ts files (and their subdirectories) in the ./src directory.
+  ],
+  "exclude": [
+    "**/test/**",
+    "**/tests/**"
+  ]
+}

@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+}
+
+.button-container {
+    margin: 50px auto 20px auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+}
+
+.traveller-expense-button {
+    background-color: #6bd945 !important;
+    color: white !important;
+}
+
+.mat-cell[colspan='9999'] {
+    width: 100%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .button-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}

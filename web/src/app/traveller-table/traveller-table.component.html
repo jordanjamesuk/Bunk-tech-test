@@ -1,0 +1,54 @@
+<h1 class="header">Bunk traveller expense table</h1>
+<table mat-table [dataSource]="traveller_data" class="mat-elevation-z8" data-cy="traveller-table">
+  <ng-container matColumnDef="Traveller Name">
+    <th mat-header-cell *matHeaderCellDef>Traveller Name</th>
+    <td mat-cell *matCellDef="let traveller">
+      {{ traveller.traveller_name }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Expense">
+    <th mat-header-cell *matHeaderCellDef>Expense</th>
+    <td mat-cell *matCellDef="let traveller">
+      £{{ traveller.expense | number : '1.2-2' }}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let traveller">
+      <button mat-icon-button color="warn" (click)="remove_row(traveller)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<div *ngIf="traveller_data.length == 0" data-cy="no-data-error">
+  <p style="color: red">
+    *No data to handle, please add data to the traveller table.
+  </p>
+</div>
+<div class="button-container">
+  <button mat-raised-button class="traveller-expense-button" (click)="toggle_form()">
+    Add Traveller Expense
+  </button>
+  <button mat-raised-button color="primary" data-cy="mock-data-button" (click)="add_mock_data()">
+    Mock Data
+  </button>
+  <button mat-raised-button color="accent" data-cy="settle-up-data-button" (click)="settleUp()">
+    Settle Up
+  </button>
+  <button mat-raised-button color="warn" data-cy="clear-data-button" (click)="clear_table()">
+    Clear
+  </button>
+</div>
+<div *ngIf="form_display" data-cy="add-traveller-display">
+  <traveller-form (eTravellerForm)="add_traveller($event)"></traveller-form>
+</div>
+
+<div *ngIf="payout_display" data-cy="payout-display">
+  <payout-table [payoutData]="payoutDetails"></payout-table>
+</div>
